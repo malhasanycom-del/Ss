@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.Gravity
-import android.view.inputmethod.InputType
+import android.text.InputType
 import android.widget.*
 import org.json.JSONArray
 import java.net.HttpURLConnection
