@@ -6,7 +6,7 @@ object M3uParser {
    val line=raw.trim().removePrefix("\uFEFF")
    when {
     line.startsWith("#EXTINF",true)->{
-     val attrs=Regex("""([\\w-]+)="([^"]*)"""").findAll(line).associate{it.groupValues[1].lowercase() to it.groupValues[2]}
+     val attrs=Regex("([\\\\w-]+)=\"([^\"]*)\"").findAll(line).associate{it.groupValues[1].lowercase() to it.groupValues[2]}
      group=attrs["group-title"]?.takeIf{it.isNotBlank()}?:"عام"; logo=attrs["tvg-logo"]?.takeIf{it.isNotBlank()}
      name=line.substringAfterLast(',',"").trim().ifBlank{attrs["tvg-name"].orEmpty()}
     }
